@@ -6,6 +6,14 @@
     width: 15em;
   }
   
+  inpot {
+    display: block;
+    width: 100%;
+    padding: .5rem;
+    margin: 1rem 0;
+    box-sizing: border-box;
+  }
+  
 .heroes li {
     position: relative;
     cursor: pointer;
@@ -96,4 +104,23 @@
   .heroes a:active {
     background-color: #525252;
     color: #fafafa;
+  }
+
+  .add-button:hover {
+    color: white;
+    background-color: #42545c;
+  }
+  button.delete {
+    position: absolute;
+    left: 210px;
+    top: 5px;
+    background-color: white;
+    color: #525252;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 1px 10px 3px 10px;
+  }
+  button.delete:hover {
+    background-color: #525252;
+    color:white;
   }
