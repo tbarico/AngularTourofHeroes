@@ -51,4 +51,11 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.delete<Hero>(url, this.httpOptions).pipe(tap(_ => this.log(`Deleted hero id=${id}`)), catchError(this.handleError<Hero>('deletHero')));
   }
+
+  searchHeroes(term :string) :Observable<Hero[]> {
+    if(!term.trim()) {
+      return of();
+    }
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(tap(x => x.length ? this.log(`Found heroes matching "${term}"`) : this.log(`No heroes matching "${term}"`)), catchError(this.handleError<Hero[]>('searchHeroes', [])));
+  }
 }
